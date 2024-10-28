@@ -16,21 +16,22 @@ const Blog = ({ blog, handleAddToBookmark }) => {
                 </div>
                 <div className='flex items-center'>
                     <span>{reading_time} min read</span>
-                    <button onClick={handleAddToBookmark} ><CiBookmark></CiBookmark></button>
+                    <button onClick={() => handleAddToBookmark(blog)} ><CiBookmark className='text-2xl'></CiBookmark></button>
                 </div>
             </div>
             <h2 className='text-4xl mt-5'>{title}</h2>
             <p>
                 {
-                    hashtags.map((hasht, idx) => <span key={idx}><a href="">#{hashtags}</a></span>)
+                    hashtags.map((hash, idx) => <span key={idx}><a href="">#{hashtags}</a></span>)
                 }
             </p>
         </div>
     );
 };
 
-Blog.PropTypes - {
-    blog: PropTypes.object.isRequired
+Blog.PropTypes = {
+    blog: PropTypes.object.isRequired,
+    handleAddToBookmark: PropTypes.func
 }
 
 export default Blog;
